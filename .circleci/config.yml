@@ -5,8 +5,10 @@ jobs:
     docker:
       - image: circleci/golang:1.12
     environment:
+      GOBIN: ${GOPATH}/bin/
       TEST_RESULTS: /tmp/test-results
     steps:
       - checkout
+      - run: go env
       - run: go install hello.go
       - run: hello
