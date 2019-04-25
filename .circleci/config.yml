@@ -1,0 +1,12 @@
+version: 2
+jobs:
+  build:
+    working_directory: /go/src/github.com/juanaveragedeveloper/circleci_tutorial
+    docker:
+      - image: circleci/golang:1.12
+    environment:
+      TEST_RESULTS: /tmp/test-results
+    steps:
+      - checkout
+      - run: go build hello.go
+      - run: hello
